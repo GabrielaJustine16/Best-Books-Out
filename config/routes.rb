@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/' => 'sessions#welcome' #take us to a route called welcome
   resources :reviews
   resources :books
   resources :authors
