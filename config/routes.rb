@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   get '/' => 'sessions#welcome' #take us to a route called welcome
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/signup' => 'users#new'
+  #already a route for post users to users create thats resource users
   resources :reviews
   resources :books
   resources :authors
