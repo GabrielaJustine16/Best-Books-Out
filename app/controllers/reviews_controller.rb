@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
 
     def new
-        @book = Book.find_by_id(params[:id])
+        #now a nested route so change id to book_id
+        @book = Book.find_by_id(params[:book_id])
         #review object
         @review = @book.build_review
         #so it knows what to associate with and bc its a belomngs ro
