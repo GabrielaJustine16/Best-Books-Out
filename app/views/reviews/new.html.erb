@@ -1,5 +1,5 @@
 
-<h1>Add a Review!</h1>
+<h1>Add a Review!<%= @review.book.title%> - <%= @review.book.author.name%></h1>
 
 
 <%= form_for(@review) do |f|%>
@@ -11,10 +11,12 @@
         <%=f.label :title  %>
         <%=f.text_field :title  %>
     </div>
+    <br>
     <div>
         <%=f.label :content  %>
-        <%=f.text_field :content  %>
+        <%=f.text_area :content, size: "25x10"  %>
     </div>
+    <br>
     <%= f.hidden_field :book_id%>
 
     <%= f.submit %>

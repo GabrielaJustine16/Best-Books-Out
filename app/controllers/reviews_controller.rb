@@ -10,8 +10,27 @@ class ReviewsController < ApplicationController
         #review belongs to an ice cream
     end 
 
-    def index
+    def create 
+        @review = Review.new(review_params)
+        if @review.save #validations add to model
+            redirect_to review_path(@review)
+        else
+            render :new
+        
+        end
     end 
+
+    def show
+        
+    end 
+
+    def index
+        #matters more to nest bc were seeung all
+    end 
+
+    def review_params
+        params.require(:review).permit(:book_id, :content, :stars, :title)
+    end
 
     
 end
