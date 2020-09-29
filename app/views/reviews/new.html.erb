@@ -1,7 +1,11 @@
+
+<h1>Add a Review!</h1>
+
+
 <%= form_for(@review) do |f|%>
     <div>
         <%=f.label :stars  %>
-        <%=f.text_field :stars %>
+        <%=f.number_field :stars,min:0,max:5 %>
     </div>
     <div>
         <%=f.label :title  %>
