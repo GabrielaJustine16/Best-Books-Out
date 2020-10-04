@@ -1,0 +1,27 @@
+<%= render partial: 'errors', locals: {object: @book}  %>
+<% form_for(@book) do |f|%>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  
+  <p> Select an Author whom already exists: </p>
+  <div>
+    <%= f.collection_select :author_id, Author.all, :id, :name, include_blank: 'Select One'%>
+
+  </div>
+
+  <p> Or create a new Author: </p>
+  <div>
+    <%=f.fields_for :auhtor do |b| %>
+      <%= b.label :name %>
+      <%= b.text_field :name %>
+    <% end %>
+  </div>
+  <br>
+  <%= f.submit %>
+<% end %>
