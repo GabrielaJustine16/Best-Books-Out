@@ -3,6 +3,6 @@ class AuthorsController < ApplicationController
 
 
     def index
-      @Author = Author.alpha
+      @author = Author.alpha
     end
 end
