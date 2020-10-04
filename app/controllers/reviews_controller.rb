@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
 
     def create 
         @review = Review.new(review_params)
+
         if @review.save #validations add to model
             redirect_to review_path(@review)
         else
@@ -21,12 +22,15 @@ class ReviewsController < ApplicationController
     end 
 
     def show
+        @review=Review.find_by_id(params[:id])
         
     end 
 
     def index
         #matters more to nest bc were seeung all
     end 
+
+    private
 
     def review_params
         params.require(:review).permit(:book_id, :content, :stars, :title)
